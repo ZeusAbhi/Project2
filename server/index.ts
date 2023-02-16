@@ -3,7 +3,6 @@ const app=express();
 import http from "http";
 import cors from "cors";
 import { Server } from "socket.io";
-app.use(cors());
 
 const server=http.createServer(app);
 const users = new Map<String, {username: String, socketID: String, roomID: String}[]>();
