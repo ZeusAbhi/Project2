@@ -60,5 +60,6 @@ const io = new Server(server, {
   });
   
 server.listen(process.env.PORT || 3001,()=>{
+    console.log(`expecting frontend at: ${process.env.FRONTURL || "http://localhost:3000"}`)
     console.log("server started");
 })
