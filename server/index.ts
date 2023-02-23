@@ -5,9 +5,10 @@ const server=http.createServer()
 const users = new Map<String, {username: String, socketID: String, roomID: String}[]>();
 
 const io = new Server(server, {
-  allowRequest: (req, callback) => {
-    const noOriginHeader = req.headers.origin === undefined;
-    callback(null, true);
+  cors: {
+    origin(requestOrigin, callback) {
+      callback(null,requestOrigin)
+    },
   }
 });
 
