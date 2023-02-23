@@ -81,7 +81,7 @@ export const Chat = ({ socket, username, room }) => {
             {online.map((user) => (
               <div>
                 <div className="onlineindi">
-                  <img className="onlineicon" src="./among-us.ico" alt="" />
+                  <img className="onlineicon" src={amongUsIcon} alt="" />
                   <p id="usersonline">{user.username}</p>
                 </div>
               </div>
