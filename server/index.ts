@@ -10,7 +10,6 @@ const users = new Map<String, {username: String, socketID: String, roomID: Strin
 const io = new Server(server, {
     cors: {
       origin: `${process.env.FRONTURL || "http://localhost:3000"}`,
-      methods: ["GET", "POST"],
     },
   });
 
