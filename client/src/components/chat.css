@@ -169,5 +169,87 @@ p{
 }
 .onlines{
   position: absolute;
+  width: 14vw;
+  height: 100vh;
+  border: 2px solid white;
+  display: none;
 }
+#onlinetag{
+  margin-top: 9vh;
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+}
+#usersonline{
 
+  margin-top: 10vh;
+  
+}
+.onlineindi{
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  z-index: 1;
+}
+.onlineicon{
+  margin-top: 9vh;
+  height: 4ch;
+}
+.online-mob{
+  position: absolute;
+  width: 24vw;
+  height: 97vh;
+  z-index: 2;
+  border-radius: 19px;
+  background: #23272a;
+  margin-top: 1vh;
+  border: 4px solid #282b30;
+}
+.forwardsSidebar{
+  /* transform: translateX(); */
+  animation: sidebarAnimation 200ms ease-in-out forwards; 
+}
+.backwardsSidebar{
+  animation: sidebarAnimationOpp 200ms ease-in-out forwards; 
+  
+}
+.onlinebtn{
+  width: 5vw;
+  position: absolute;
+  z-index: 3;
+  cursor: pointer;
+  margin-top: 3vh;
+  background: transparent;
+  border:0px;
+}
+.slide{
+  position: absolute;
+}
+.userhandler{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dropdownimg{
+  width: 4vw;
+}
+.defaultSidebar{
+  transform: translateX(-150%);
+}
+@keyframes sidebarAnimation {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes sidebarAnimationOpp {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translateX(-150%);
+  }
+}
