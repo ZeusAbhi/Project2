@@ -6,9 +6,15 @@ const users = new Map<String, {username: String, socketID: String, roomID: Strin
 
 const io = new Server(server, {
   cors: {
-    origin(requestOrigin, callback) {
-      callback(null,requestOrigin)
-    },
+    origin: function(origin, fn) {
+      if(origin){
+        console.log(origin)
+        return fn(null, origin);
+      }
+      return fn({name:"CORS",message:'Error Invalid domain'});
+  } ,
+    methods: ["GET", "POST"],
+    credentials: true
   }
 });
 
