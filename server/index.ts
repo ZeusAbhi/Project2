@@ -1,17 +1,15 @@
 import http from "http";
 import { Server } from "socket.io";
 
-const server=http.createServer((req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*'); /* @dev First, read about security */
-res.setHeader('Access-Control-Max-Age', 2592000); // 30 days
-});
+const server=http.createServer()
 const users = new Map<String, {username: String, socketID: String, roomID: String}[]>();
 
 const io = new Server(server, {
-    cors: {
-      origin: `${process.env.FRONTURL || "http://localhost:3000"}`,
-    },
-  });
+  allowRequest: (req, callback) => {
+    const noOriginHeader = req.headers.origin === undefined;
+    callback(null, true);
+  }
+});
 
   io.on("connection",(socket: any)=>{
     console.log(`User connected with id ${socket.id}`);
