@@ -1,11 +1,10 @@
-import express from 'express';
-const app=express();
 import http from "http";
-import cors from "cors";
 import { Server } from "socket.io";
-app.use(cors())
-const server=http.createServer(app);
 
+const server=http.createServer((req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); /* @dev First, read about security */
+res.setHeader('Access-Control-Max-Age', 2592000); // 30 days
+});
 const users = new Map<String, {username: String, socketID: String, roomID: String}[]>();
 
 const io = new Server(server, {
