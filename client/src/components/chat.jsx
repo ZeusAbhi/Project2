@@ -62,7 +62,11 @@ export const Chat = ({ socket, username, room }) => {
   return (
     <>
       <div>
-        <video className="chatvideo" src="./amongus.webm" autoPlay loop muted />
+        <video className="chatvideo" src="./amongus.webm" autoPlay loop muted onClick={() => {
+          setHovered(false);
+   
+        }}/>
+        
         <button className="onlinebtn"    onClick={() => {
           setHovered(!hovered);
    
@@ -112,7 +116,10 @@ export const Chat = ({ socket, username, room }) => {
          
             </div>
       
-      <div className="chatparent">
+      <div className="chatparent" onClick={() => {
+          setHovered(false);
+   
+        }}>
         <img src="" alt="" srcset="" />
         <div className="chatbody">
           <div className="chatbox">

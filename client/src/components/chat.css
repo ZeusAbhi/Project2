@@ -96,7 +96,7 @@ textarea:focus {
 .messagebyuser::before{
   content: "";
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   bottom: 0;
   left: -2px;
   height: 20px;
@@ -188,7 +188,7 @@ p{
 .onlineindi{
   display: flex;
   align-items: center;
-  font-size: 1rem;
+  font-size: 1.4rem;
   text-align: center;
   z-index: 1;
 }
@@ -198,13 +198,23 @@ p{
 }
 .online-mob{
   position: absolute;
-  width: 24vw;
+  width: 17vw;
   height: 97vh;
   z-index: 2;
   border-radius: 19px;
   background: #23272a;
   margin-top: 1vh;
   border: 4px solid #282b30;
+}
+@media (max-width:768px)
+{
+  .online-mob{
+    width: 41vw;
+  }
+  .onlineindi{
+    font-size: 1.3rem;
+  }
+  
 }
 .forwardsSidebar{
   /* transform: translateX(); */
@@ -223,6 +233,7 @@ p{
   background: transparent;
   border:0px;
 }
+
 .slide{
   position: absolute;
 }
@@ -233,6 +244,12 @@ p{
 }
 .dropdownimg{
   width: 4vw;
+}
+@media(max-width:768px)
+{
+  .dropdownimg{
+    width: 9vw;
+  }
 }
 .defaultSidebar{
   transform: translateX(-150%);
