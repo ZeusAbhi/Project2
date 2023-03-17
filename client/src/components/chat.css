@@ -5,10 +5,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-.overflow-x-hidden{
-  overflow-x: hidden;
-  max-width: 100vw;
-}
+
 body {
   background-color: black;
   overflow-x: hidden;
