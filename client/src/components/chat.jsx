@@ -243,7 +243,7 @@ export const Chat = ({ socket, username, room }) => {
   }, [socket]);
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <div>
         <video
           className="chatvideo"
@@ -446,6 +446,6 @@ export const Chat = ({ socket, username, room }) => {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
