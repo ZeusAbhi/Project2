@@ -1,2 +1,3 @@
-client/.env
+Client/.env
+server/.env
 node_modules
