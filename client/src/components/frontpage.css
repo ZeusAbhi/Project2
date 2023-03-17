@@ -8,7 +8,7 @@
 :root{
   --ti-cursor-font-size:3rem;
 }
-@media(width<=768px)
+@media(max-width:768px)
 {
   :root{
     --ti-cursor-font-size:2rem;
@@ -34,7 +34,7 @@ span{
   align-items: center;
   color: #673de6;
 }
-@media(width<=768px)
+@media(max-width:768px)
 {
   span{
     font-size: 2.3rem;
@@ -50,7 +50,7 @@ input {
   background: rgba(66, 69, 73,0.6);
   color: white;
 }
-@media(width<=1000px)
+@media(max-width: 1000px)
 {
   input{
     width: 56vw;
@@ -68,7 +68,7 @@ input:focus,input:hover{
   gap: 2vw;
   margin-top: 13vh;
 }
-@media(width<=1000px)
+@media(max-width:1000px)
 {
   .join{
     flex-direction: column;
@@ -87,7 +87,7 @@ input:focus,input:hover{
   color: #00fa9a;
   cursor: pointer;
 }
-@media(width<=1000px)
+@media(max-width:1000px)
 {
   .btn{
     padding-left: 5vw;
@@ -130,7 +130,7 @@ input:focus,input:hover{
 .footimg:hover{
   filter: hue-rotate(90deg)
 }
-@media(width<=1000px)
+@media(max-width:1000px)
 {
   .foot{
     margin-top: 20%;
