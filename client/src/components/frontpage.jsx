@@ -63,7 +63,10 @@ export const Frontpage = () => {
               </h1>
             </h1>
             <form
-                onSubmit={joinroom}
+                onSubmit={(e)=>{
+                  e.preventDefault();
+                  joinroom();
+                }}
                 className="join">
               <input
                 type="text"
