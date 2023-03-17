@@ -23,7 +23,7 @@ body {
   border-radius: 10px;
   overflow-y: auto;
 }
-@media(width<=1000px)
+@media(max-width: 1000px)
 {
   .chatbox{
     width: 91vw;
@@ -55,7 +55,7 @@ textarea {
   outline: none;
   outline-style: none;
 }
-@media(width<=1000px)
+@media(max-width: 1000px)
 {
   textarea{
     width:71vw;
@@ -106,7 +106,7 @@ textarea:focus,textarea:hover {
   line-height: 1.5;
   position: relative;
 }
-@media(width<=1000px)
+@media(max-width: 1000px)
 {
   .messagebyuser{
     font-size: 1.5rem;
@@ -155,7 +155,7 @@ textarea:focus,textarea:hover {
   margin-right: 1vw;
   position: relative;
 }
-@media(width<=1000px)
+@media(max-width: 1000px)
 {
   .messagebyreciever{
     font-size: 1.5rem;
@@ -386,7 +386,7 @@ input[type="file"] {
   background: transparent;
   cursor: pointer;
 }
-@media(width<=768px)
+@media(max-width: 768px)
 {
   .file{
     width: 8vw;
@@ -402,7 +402,7 @@ input[type="file"] {
   border-radius: 17px;
   object-fit: cover;
 }
-@media(width<=1000px)
+@media(max-width: 1000px)
 {
   .imagebox{
     --scale:3.8vw
