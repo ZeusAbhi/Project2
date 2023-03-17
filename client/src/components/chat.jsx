@@ -382,7 +382,7 @@ export const Chat = ({ socket, username, room }) => {
           }}
          className="chatinput">
           <div className="filesend">
-            <textarea
+            <input
               type="text"
               value={message}
               placeholder="enter message"
