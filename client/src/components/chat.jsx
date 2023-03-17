@@ -358,7 +358,29 @@ export const Chat = ({ socket, username, room }) => {
             })}
           </div>
         </div>
-        <div className="chatinput">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            for (let i = 0; i < data.length; i++) {
+              // uploadimage(data[i]);
+              if (data[i] != null) {
+                if (
+                  data[i].name.split(".").pop() === "png" ||
+                  data[i].name.split(".").pop() === "jpeg" ||
+                  data[i].name.split(".").pop() === "jpg" ||
+                  data[i].name.split(".").pop() === "gif" 
+
+                )
+                  uploadimage(data[i]);
+                else uploadvideo(data[i]);
+              }
+            }
+
+            setData([]);
+            setDataName([]);
+            sendMessage();
+          }}
+         className="chatinput">
           <div className="filesend">
             <textarea
               type="text"
@@ -420,31 +442,12 @@ export const Chat = ({ socket, username, room }) => {
           </div>
 
           <button
-            onClick={() => {
-              for (let i = 0; i < data.length; i++) {
-                // uploadimage(data[i]);
-                if (data[i] != null) {
-                  if (
-                    data[i].name.split(".").pop() === "png" ||
-                    data[i].name.split(".").pop() === "jpeg" ||
-                    data[i].name.split(".").pop() === "jpg" ||
-                    data[i].name.split(".").pop() === "gif" 
-
-                  )
-                    uploadimage(data[i]);
-                  else uploadvideo(data[i]);
-                }
-              }
-
-              setData([]);
-              setDataName([]);
-              sendMessage();
-            }}
+            type="submit"
             className="chatbtn"
           >
             Send
           </button>
-        </div>
+        </form>
       </div>
     </>
   );
