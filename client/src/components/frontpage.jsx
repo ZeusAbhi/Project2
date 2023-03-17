@@ -36,6 +36,7 @@ export const Frontpage = () => {
               autoPlay
               loop
               muted
+              playsInline
             />
           </div>
           <div className="front">
