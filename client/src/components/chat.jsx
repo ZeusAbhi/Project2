@@ -358,31 +358,9 @@ export const Chat = ({ socket, username, room }) => {
             })}
           </div>
         </div>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            for (let i = 0; i < data.length; i++) {
-              // uploadimage(data[i]);
-              if (data[i] != null) {
-                if (
-                  data[i].name.split(".").pop() === "png" ||
-                  data[i].name.split(".").pop() === "jpeg" ||
-                  data[i].name.split(".").pop() === "jpg" ||
-                  data[i].name.split(".").pop() === "gif" 
-
-                )
-                  uploadimage(data[i]);
-                else uploadvideo(data[i]);
-              }
-            }
-
-            setData([]);
-            setDataName([]);
-            sendMessage();
-          }}
-         className="chatinput">
+        <div className="chatinput">
           <div className="filesend">
-            <input
+            <textarea
               type="text"
               value={message}
               placeholder="enter message"
@@ -442,12 +420,31 @@ export const Chat = ({ socket, username, room }) => {
           </div>
 
           <button
-            type="submit"
+            onClick={() => {
+              for (let i = 0; i < data.length; i++) {
+                // uploadimage(data[i]);
+                if (data[i] != null) {
+                  if (
+                    data[i].name.split(".").pop() === "png" ||
+                    data[i].name.split(".").pop() === "jpeg" ||
+                    data[i].name.split(".").pop() === "jpg" ||
+                    data[i].name.split(".").pop() === "gif" 
+
+                  )
+                    uploadimage(data[i]);
+                  else uploadvideo(data[i]);
+                }
+              }
+
+              setData([]);
+              setDataName([]);
+              sendMessage();
+            }}
             className="chatbtn"
           >
             Send
           </button>
-        </form>
+        </div>
       </div>
     </>
   );
