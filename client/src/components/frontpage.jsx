@@ -62,7 +62,9 @@ export const Frontpage = () => {
                 />
               </h1>
             </h1>
-            <div className="join">
+            <form
+                onSubmit={joinroom}
+                className="join">
               <input
                 type="text"
                 placeholder="name"
@@ -79,6 +81,7 @@ export const Frontpage = () => {
                 }}
               />
               <button
+                type="submit"
                 tabIndex="0"
                 onKeyDown={handleKeyPress}
                 onClick={joinroom}
@@ -96,7 +99,7 @@ export const Frontpage = () => {
               >
                 Delete Room
               </button>
-            </div>
+            </form>
           </div>
           <footer>
             <div className="foot">
