@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./frontpage.css";
 import io from "socket.io-client";
 import { Chat } from "./chat";
@@ -11,7 +11,11 @@ export const Frontpage = () => {
   const [room, setRoom] = useState("");
   const [chat, setChat] = useState(true);
   // const [online,setOnline]=useState([]);
-
+  useEffect(()=>{
+    if(localStorage.getItem('username')){
+      setUsername(localStorage.getItem('username'))
+    }
+  },[])
   const joinroom = () => {
     if (username !== "" && room !== "") {
       socket.emit("join_room", room);
@@ -71,9 +75,11 @@ export const Frontpage = () => {
                 className="join">
               <input
                 type="text"
+                value={username}
                 placeholder="name"
                 onChange={(event) => {
                   setUsername(event.target.value);
+                  localStorage.setItem('username',event.target.value)
                 }}
               />
               <input
