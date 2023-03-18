@@ -14,13 +14,7 @@
     --ti-cursor-font-size:2rem;
   }
 }
-@media(max-width:768px)
-{
-  .parent{
-    position: relative;
-    top: -9vh;
-  }
-}
+
 
 .chat {
   text-align: center;
@@ -117,12 +111,7 @@ input:focus,input:hover{
   object-fit: cover;
   filter: blur(4px);
 }
-@media(max-width:768px)
-{
-  .frontvideo{
-    height: 70vh;
-  }
-}
+
 .front {
   position: relative;
 }
