@@ -379,7 +379,7 @@ export const Chat = ({ socket, username, room }) => {
                       setDataName((list) => [...list, e.target.files[0].name]);
                   }}
                 />
-                <img className="file" src="./clip.svg" alt="" />
+                <img className="file" src="./clip-w.svg" alt="" />
               </label>
               <div className="emojihead" ref={animationParent}>
                 <button
