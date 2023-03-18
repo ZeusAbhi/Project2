@@ -120,7 +120,7 @@ input:focus,input:hover{
 @media(max-width:768px)
 {
   .frontvideo{
-    height: 79vh;
+    height: 70vh;
   }
 }
 .front {
