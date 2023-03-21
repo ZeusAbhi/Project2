@@ -5,7 +5,9 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
+html{
+  overflow-x: hidden
+}
 body {
   background-color: black;
   overflow-x: hidden;
@@ -20,7 +22,7 @@ body {
   height: 70vh;
   border: 4px solid #282b30;
   margin-top: 10vh;
-  position: relative;
+  /* position: relative; */
   border-radius: 10px;
   overflow-y: auto;
 }
@@ -36,7 +38,7 @@ body {
 .chatinput {
   display: flex;
 
-  position: absolute;
+  /* position: absolute; */
   margin-top: 4vh;
 
   left: 15vw;
@@ -80,6 +82,9 @@ textarea:focus,textarea:hover {
 }
 .chatbtn:hover {
   border: 2px solid rgba(255, 255, 255, 1);
+}
+.root{
+  /* min-height: 100vh; */
 }
 .chatvideo {
   position: absolute;

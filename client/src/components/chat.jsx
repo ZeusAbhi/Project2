@@ -251,6 +251,7 @@ export const Chat = ({ socket, username, room }) => {
           autoPlay
           loop
           muted
+          playsInline
           onClick={() => {
             setHovered(false);
             setHovered2(false);
@@ -319,7 +320,7 @@ export const Chat = ({ socket, username, room }) => {
         <p>{renderdata(dataname)}</p>
       </div>
       <div>
-        <div>
+        <div style={{position: "relative"}}>
           <div
             className={`online-mob2 ${
               hovered2
@@ -342,7 +343,6 @@ export const Chat = ({ socket, username, room }) => {
           setHovered2(false);
         }}
       >
-        <img src="" alt="" srcset="" />
         <div className="chatbody">
           <div className="chatbox" ref={scrollParent}>
             {messageList.map((messageContent) => {
