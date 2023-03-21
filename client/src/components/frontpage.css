@@ -5,6 +5,14 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+} 
+@font-face {
+  font-family: CustomFont;
+  src: url(Amongus-3zjxX.ttf);
+}
+.among{
+  width: 2vw;
+  height: 2vw;
 }
 :root{
   --ti-cursor-font-size:3rem;
@@ -16,7 +24,7 @@
   }
 }
 .chat>h1>span{
-  font-family: 'VT323', monospace;
+  font-family: CustomFont;
   color: white;
 
 }
