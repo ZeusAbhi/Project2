@@ -11,6 +11,7 @@ html{
 body {
   background-color: black;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 .chatbody {
   display: flex;
