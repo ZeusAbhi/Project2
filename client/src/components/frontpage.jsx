@@ -50,9 +50,9 @@ export const Frontpage = () => {
                   options={{ loop: true }}
                   getBeforeInit={(instance) => {
                     instance
-                      .type("A Connect with your Friends A")
+                      .type("Connect with your Friends")
                       .pause(750)
-                      .delete(35)
+                      .delete(25)
                       .type("Send Emojis 💥─╦̵̵̿╤ඞ")
                       .pause(750)
                       .delete(40)
