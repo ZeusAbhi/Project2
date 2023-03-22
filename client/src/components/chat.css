@@ -426,6 +426,7 @@ aside{
   height: 450px;
   width: 350px;
   bottom: 10vh !important;
+  z-index: 2;
 }
 
 .emojihead{
