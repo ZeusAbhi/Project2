@@ -434,7 +434,7 @@ aside{
   justify-content: center;
   align-items: center;
 }
-@media(width<1200px)
+@media(min-width:1200px)
 {
   .emojihead{
     display: none;
