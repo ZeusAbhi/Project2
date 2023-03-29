@@ -302,7 +302,7 @@ p {
   animation: sidebarAnimationOpp2 200ms ease-in-out forwards;
 }
 .onlinebtn {
-  width: 5vw;
+  width: 7vw;
   position: absolute;
   z-index: 3;
   cursor: pointer;
@@ -311,7 +311,7 @@ p {
   border: 0px;
 }
 .onlinebtn2 {
-  width: 5vw;
+  width: 7vw;
   position: absolute;
   z-index: 3;
   cursor: pointer;
