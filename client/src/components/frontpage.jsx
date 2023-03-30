@@ -8,6 +8,13 @@ const socket = io.connect(import.meta.env.VITE_APP_SOCKET_URL);
 
 export const Frontpage = () => {
   const [username, setUsername] = useState("");
+  /*
+  const profiles = ["p1","p2"...]
+  let profilephoto = '{default photo}'
+  if(username && username.charCodeAt(0)]){
+    profilephoto = profiles[(username.charCodeAt(0)%profiles.length())];
+  }
+  */
   const [room, setRoom] = useState("");
   const [chat, setChat] = useState(true);
   // const [online,setOnline]=useState([]);
@@ -228,10 +235,9 @@ export const Frontpage = () => {
              <span style={{ color: "#89CFF0", background: "transparent" }}>
                connect
              </span>{" "}
-             with fellow imposters in our Among Us chat app. Whether you're
+             with fellow imposters in ChatmongUs. Whether you're
              looking to team up with other imposters to execute the perfect kill
-             or just want to discuss strategy with like-minded players, our Among
-             Us chat app has got you covered.
+             or just want to discuss strategy with like-minded players, ChatmongUs has got you covered.
            </h3>
          </div>
        </div>
@@ -289,7 +295,7 @@ export const Frontpage = () => {
            </svg>
  
            <h3>
-             Our Among Us chat app allows you to join{" "}
+             ChatmongUs allows you to join{" "}
              <span style={{ color: "red" }}>multiple rooms</span>, just like in
              the game. Chat with your crewmates in one room, then switch to
              another room to discuss your strategy with your fellow imposters.

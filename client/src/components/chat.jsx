@@ -5,6 +5,10 @@ import axios from "axios";
 import amongUsIcon from "./among-us.ico";
 import EmojiPicker from "emoji-picker-react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+ import { Img } from "./data";
+
+
+
 const renderimage = (message, username) => {
   return (
     <div>
@@ -64,9 +68,11 @@ const rendermessage = (message, username) => {
     return (
       <div className="bothmessages">
         <div className="messagebyuser">
-          <h5 className="chatbyuserheading" style={{ color: "#263238" }}>
+          <div className="profile" style={{display:"flex",gap:"0.5vw"}}>
+          <img src={Img[message.author.charCodeAt(0)%Img.length].imgsrc} style={{height:"4vh"}} alt="" /><h5 className="chatbyuserheading" style={{ color: "#263238" }}>
             {message.message}
           </h5>
+          </div>
         </div>
 
         <div className="details">
@@ -78,7 +84,9 @@ const rendermessage = (message, username) => {
     return (
       <div className="bothmessages2">
         <div className="messagebyreciever">
-          <h5 className="chatbyrecieverheading">{message.message}</h5>
+        <div className="profile" style={{display:"flex",gap:"0.5vw"}}>
+        <img src={Img[message.author.charCodeAt(0)%Img.length].imgsrc} style={{height:"4vh"}} alt="" /><h5 className="chatbyrecieverheading">{message.message}</h5>
+        </div>
         </div>
         <div className="details" id="recieverdetail">
           <p>
@@ -103,6 +111,9 @@ export const Chat = ({ socket, username, room }) => {
   const [animationParent] = useAutoAnimate();
   console.log(dataname);
   const scrollParent = useRef();
+
+  
+ 
   const scrollToBottom = () => {
     if (!scrollParent.current) return;
     setTimeout(() => {
@@ -203,7 +214,7 @@ export const Chat = ({ socket, username, room }) => {
             ? new Date(Date.now()).getMinutes()
             : "0" + new Date(Date.now()).getMinutes()) +
           (new Date(Date.now()).getHours() > 12 ? " PM" : " AM"),
-      };
+                };
 
       setMessage("");
       new Date();
