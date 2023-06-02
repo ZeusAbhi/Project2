@@ -1,23 +1,5 @@
 import * as mongoose from "mongoose";
 
-// const messages = new mongoose.Schema({
-// type: {
-//     type: String,
-//     required: true
-// },
-// author: {
-//     type: String,
-//     required: true
-// },
-// date: {
-//     type: String,
-//     required: true
-// },
-// message: {
-//     type: String,
-//     required: true
-// }
-// })
 
 const messageSchema = new mongoose.Schema({
   roomId: {

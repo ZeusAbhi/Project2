@@ -5,12 +5,13 @@ const users = new Map<
   String,
   { username: String; socketID: String; roomID: String }[]
 >();
-
+  // Connection to socket from frontend
 io.on("connection", (socket: any) => {
   console.log(`User connected with id ${socket.id}`);
-
+  // Creating a room
   socket.on("join_room", (data: string) => {
     socket.join(data);
+    // Searching if room exists or not
     messagesModel.findOne({ roomId: data }).then((data) => {
       if (!data || !data.messages) return;
       data.messages.forEach((message) => {
@@ -28,7 +29,7 @@ io.on("connection", (socket: any) => {
       author: string;
       time: string;
     }) => {
-      // await msgschema.update({roomid: data.room},{$push: {message: data}})
+      // If room doesn't exist ,make a new room else update the room
       const room = await messagesModel.findOne({ roomId: data.room });
       if (!room) {
         await messagesModel.create({ roomId: data.room });
@@ -37,14 +38,15 @@ io.on("connection", (socket: any) => {
         { roomId: data.room },
         { $push: { messages: data } }
       );
-
+      // sending messages to all the connected users
       socket.to(data.room).emit("receive_message", data);
     }
-  );
+  ); 
+  //  Function to delete the room
   socket.on("delete", async (roomId: String) => {
     await messagesModel.deleteOne({ roomId: roomId });
   });
-
+  //  Display previous messages to the user on log out and log in
   socket.on("online_users", (data: string, dataroom: string) => {
     console.log("prev", users);
     console.log(dataroom, users.has(dataroom));
@@ -62,7 +64,7 @@ io.on("connection", (socket: any) => {
     io.emit("online", users.get(dataroom));
     console.log(users);
   });
-
+  // Disconnect the user 
   socket.on("disconnect", () => {
     users.forEach((roomArray) => {
       roomArray.forEach((user) => {

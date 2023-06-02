@@ -8,7 +8,7 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
  import { Img } from "./data";
 
 
-
+//  To render images
 const renderimage = (message, username) => {
   return (
     <div>
@@ -35,6 +35,8 @@ const renderimage = (message, username) => {
     </div>
   );
 };
+
+//  To render videos
 const rendervideo = (message, username) => {
   return (
     <div>
@@ -62,7 +64,8 @@ const rendervideo = (message, username) => {
       )}
     </div>
   );
-};
+}; 
+//  To render messages to user and reciever
 const rendermessage = (message, username) => {
   if (message.author == username)
     return (
@@ -123,6 +126,7 @@ export const Chat = ({ socket, username, room }) => {
   useEffect(() => {
     scrollParent.current && autoAnimate(scrollParent.current);
   }, [scrollParent]);
+  //  Display name of file
   const renderdata = (data) => {
     return data.map((e) => {
       return (
@@ -139,9 +143,11 @@ export const Chat = ({ socket, username, room }) => {
       );
     });
   };
+  //  To toggle emoji option
   const handleEmoji = () => {
     setEmoji(!emoji);
   };
+  // Upload image to cloudinary
   const uploadimage = (data) => {
     const formData = new FormData();
     formData.append("file", data);
@@ -171,6 +177,7 @@ export const Chat = ({ socket, username, room }) => {
         scrollToBottom();
       });
   };
+  //  upload video to cloudinary
   const uploadvideo = (data) => {
     const formData = new FormData();
     formData.append("file", data);
@@ -200,6 +207,7 @@ export const Chat = ({ socket, username, room }) => {
       });
   };
   // room, author, message, time, type
+  // Message Management system,sending messages to backend
   const sendMessage = async () => {
     if (message !== "") {
       const messageData = {
@@ -236,10 +244,12 @@ export const Chat = ({ socket, username, room }) => {
       setMessageList((list) => [...list, data]);
       scrollToBottom();
     });
+    // Setting list of online users
     socket.on("online", (data1) => {
       console.log(data1);
       setOnline(data1);
     });
+    // Removing users from room on disconnecting
     socket.on("disconnectedUser", (disconnectedUserID) => {
       setOnline((oldata) => {
         const newArray = [];
@@ -277,7 +287,8 @@ export const Chat = ({ socket, username, room }) => {
         >
           <img className="dropdownimg" src="./green2.svg" alt="" />
         </button>
-      </div>
+      </div> 
+      {/* Rendering list of online users */}
       <div className="onlines">
         <p id="onlinetag">Online</p>
 
@@ -326,6 +337,7 @@ export const Chat = ({ socket, username, room }) => {
       >
         <img className="dropdownimg" src="./among-us-watch.svg" alt="" />
       </button>
+      {/* Rendering name of selected files(images and videos) */}
       <div className="onlines">
         <p id="onlinetag">Media</p>
         <p>{renderdata(dataname)}</p>
@@ -353,7 +365,8 @@ export const Chat = ({ socket, username, room }) => {
           setHovered(false);
           setHovered2(false);
         }}
-      >
+      > 
+       {/* Main chat window div */}
         <div className="chatbody">
           <div className="chatbox" ref={scrollParent}>
             {messageList.map((messageContent) => {
@@ -369,6 +382,7 @@ export const Chat = ({ socket, username, room }) => {
             })}
           </div>
         </div>
+         {/* To select multiple files */}
         <div className="chatinput">
           <div className="filesend">
             <textarea
@@ -392,6 +406,7 @@ export const Chat = ({ socket, username, room }) => {
                 />
                 <img className="file" src="./clip-w.svg" alt="" />
               </label>
+              {/* To send emojis */}
               <div className="emojihead" ref={animationParent}>
                 <button
                   onClick={handleEmoji}
@@ -429,11 +444,10 @@ export const Chat = ({ socket, username, room }) => {
               </div>
             </div>
           </div>
-
+         {/* To send images or videos depending upon type of file */}
           <button
             onClick={() => {
               for (let i = 0; i < data.length; i++) {
-                // uploadimage(data[i]);
                 if (data[i] != null) {
                   if (
                     data[i].name.split(".").pop() === "png" ||

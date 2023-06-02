@@ -8,16 +8,8 @@ const socket = io.connect(import.meta.env.VITE_APP_SOCKET_URL);
 
 export const Frontpage = () => {
   const [username, setUsername] = useState("");
-  /*
-  const profiles = ["p1","p2"...]
-  let profilephoto = '{default photo}'
-  if(username && username.charCodeAt(0)]){
-    profilephoto = profiles[(username.charCodeAt(0)%profiles.length())];
-  }
-  */
   const [room, setRoom] = useState("");
   const [chat, setChat] = useState(true);
-  // const [online,setOnline]=useState([]);
   useEffect(()=>{
     if(localStorage.getItem('username')){
       setUsername(localStorage.getItem('username'))
@@ -27,7 +19,6 @@ export const Frontpage = () => {
     if (username !== "" && room !== "") {
       socket.emit("join_room", room);
       setChat(false);
-      //  setOnline((list) => [...list, username])
       socket.emit("online_users", username, room);
     }
   };
